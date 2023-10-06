@@ -3,7 +3,7 @@
 .stack 4096
 
 .data
-	n DWORD 3 ; so find 30*n*(n+1)/2
+	n DWORD 0 ; so find 30*n*(n+1)/2
 	sum DWORD 0
 
 ExitProcess proto, dwExitCode:dword

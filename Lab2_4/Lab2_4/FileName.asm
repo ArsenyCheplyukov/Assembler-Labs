@@ -4,8 +4,8 @@
 ExitProcess PROTO, dwExitCode:DWORD
 
 .data
-    n DWORD 123456799 ; Example value for n
-    k DWORD 1 ; Example value for k
+    n DWORD 1234567999 ; Example value for n
+    k DWORD 2 ; Example value for k
 
     ; Variables to store the count of each digit (0-9)
     count0 DWORD ?

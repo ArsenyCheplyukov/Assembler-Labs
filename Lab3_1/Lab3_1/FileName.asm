@@ -5,7 +5,7 @@
 ExitProcess proto, dwExitCode: dword 
 
 .data 
-myArray DWORD 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+myArray DWORD 1, 2, 4, 5
 k DWORD 3
 sum DWORD ? 
 
@@ -15,7 +15,7 @@ main PROC
     mov ecx, LENGTHOF myArray  ; initialize the counter with the length of the array   
     mov ebx, 0 ; empty ebx index (here containing sum of elements untill end)
 
-    LOOP:                          
+    LOOP_:                          
         mov edx, 0 ; reminder of division by 3
         mov eax, [edi] ; paste current array element into eax
         div k ; divide by three
@@ -27,7 +27,10 @@ main PROC
 
     move_to_next: 
         add edi, TYPE myArray       ; move to the next element of the array
-        loop LOOP
+        ; loop LOOP_
+        dec ecx
+        cmp ecx, 0
+        jne LOOP_
         ; the loop instruction by default uses ECX as a counter, which automatically
         ; decrements by one on each iteration and is compared with zero
 

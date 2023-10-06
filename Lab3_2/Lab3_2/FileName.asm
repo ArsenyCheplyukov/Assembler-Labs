@@ -4,8 +4,8 @@
 ExitProcess proto, dwExitCode:dword
 
 .data
-    a dword 1, 4, 6, 10, 15, 45, 60, 80, 90, 100
-    b dword 2, 4, 5, 6, 7, 9, 10, 11, 14, 40, 50
+    a dword 1, 4, 6, 10, 15, 45, 60, 90
+    b dword 2, 4, 5, 6, 7, 9
 
     ; Resulting array c
     c_ dword LENGTHOF a dup(0) ; Allocate memory and initialize with zeros
@@ -33,10 +33,10 @@ compareLoop:
 
     ; Check if we have reached the end of arrays a and b
     cmp esi, end_a  ; Check if esi (a) is at the end
-    je endLoop
+    jg endLoop
 
     cmp edi, end_b  ; Check if edi (b) is at the end
-    je addRemainingAtoC  ; Add remaining a_i to c_
+    jg addRemainingAtoC  ; Add remaining a_i to c_
 
     ; Compare current elements
     cmp eax, edx
@@ -76,7 +76,7 @@ addAtoCLoop:
 checkEndOfA:
     ; Check if we have reached the end of array a
     cmp esi, end_a  ; Check if esi (a) is at the end
-    jl addAtoCLoop  ; If not at the end, continue adding a_i to c_
+    jle addAtoCLoop  ; If not at the end, continue adding a_i to c_
 
 endLoop:
     invoke ExitProcess,0
