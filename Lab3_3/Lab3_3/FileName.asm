@@ -6,12 +6,13 @@ ExitProcess PROTO, dwExitCode: DWORD
 .data
     ; Let's consider a table of numbers with 4 rows and 4 columns.
     ; The elements of the table are arranged in memory row by row.
-    tableD DWORD 5, 10, 15, 25
+    tableD DWORD 5, 10, 15, 25, 44
         RowSize = ($ - tableD); size of a row (in bytes)
         NumberOfRows = (RowSize / TYPE tableD)
-           DWORD 9, 8, 4, 17
-           DWORD 30, 21, 6, 52
-           DWORD 11, 33, 22, 1
+           DWORD 9, 8, 4, 17, 79
+           DWORD 30, 21, 6, 52, 123
+           DWORD 11, 33, 22, 1, 89
+           DWORD 55, 51, 66, 0, 34
     ; index of maximum element
     minimum_row DWORD 0
     minimum_col DWORD 0
